@@ -29,7 +29,7 @@ module "eks" {
   
   worker_groups = [
     {
-      instance_type = "t2.micro"
+      instance_type = "t2.medium"
       asg_max_size  = 1
       key_name             = aws_key_pair.main.key_name
     }
