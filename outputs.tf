@@ -17,3 +17,8 @@ output "config_map_aws_auth" {
   description = ""
   value       = module.eks.config_map_aws_auth
 }
+
+output "cluster_ssh_private_key" {
+  value       = tls_private_key.main.private_key_pem
+  description = "SSH key to use for the cluster"
+}

@@ -25,7 +25,7 @@ data "aws_ami" "main" {
 
     filter {
     name   = "name"
-    values = ["amzn2-ami-ecs-hvm-*"]
+    values = ["amazon-eks-node-1.14-*"]
   }
 
   filter {
