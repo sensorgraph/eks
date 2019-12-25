@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: helloworlddeployment
+  labels:
+    app: helloworld
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: tutum/hello-world
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloworldservice
+spec:
+  type : LoadBalancer
+  selector:
+    app: helloworld
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
