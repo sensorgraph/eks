@@ -40,8 +40,12 @@ data "aws_ami" "main" {
 }
 
 #IAM Policy
-data "aws_iam_policy" "secretsmanager" {
-  arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+
+data "template_file" "secretsmanager" {
+  template = file("files/iam/secretsmanager-policy.json.tpl")
+  vars     = {
+            secretsmanager_arn = "arn:aws:secretsmanager:${data.terraform_remote_state.main.outputs.region}:${data.aws_caller_identity.current.account_id}:secret:/cicn/*"
+          }
 }
 
 # KMS keys

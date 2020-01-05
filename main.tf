@@ -40,7 +40,7 @@ module "eks" {
   ]
 
   workers_additional_policies = [
-    data.aws_iam_policy.secretsmanager.arn
+    aws_iam_policy.secretsmanager.arn
   ]
 
   tags    = merge(
