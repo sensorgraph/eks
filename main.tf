@@ -31,8 +31,16 @@ module "eks" {
     {
       instance_type = "t2.medium"
       asg_max_size  = 1
-      key_name             = aws_key_pair.main.key_name
+      key_name      = aws_key_pair.main.key_name
     }
+  ]
+
+  worker_additional_security_group_ids = [
+    data.terraform_remote_state.bastion.outputs.ssh_sg_id
+  ]
+
+  workers_additional_policies = [
+    data.aws_iam_policy.secretsmanager.arn
   ]
 
   tags    = merge(

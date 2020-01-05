@@ -39,6 +39,10 @@ data "aws_ami" "main" {
   }
 }
 
+#IAM Policy
+data "aws_iam_policy" "secretsmanager" {
+  arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+}
 
 # KMS keys
 data "aws_kms_alias" "lambda" {
