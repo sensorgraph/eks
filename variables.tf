@@ -6,6 +6,7 @@ variable "tags" {
     "Billing:OrganisationUnit" = "Kibadex Labs"
     "Billing:Application"      = "Generic kubernetes cluster"
     "Billing:Environment"      = "Prod"
+    "Billing:Contact"          = "mbasri@outlook.fr"
     "Billing:Contact"          = "mohamed.basri@outlook.com"
     "Technical:Terraform"      = "True"
     "Technical:Version"        = "1.0.0"
